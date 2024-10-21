@@ -27,18 +27,17 @@ export default function Home() {
   ];
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [playVideo, setPlayVideo] = useState(false); // Estado para controlar o vídeo
   const videoUrl = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
 
-  // Função que retorna a URL do vídeo incorporado com autoplay e mute
+  // Função que retorna a URL do vídeo incorporado sem mute
   const getEmbedUrl = (url: string): string => {
     const videoIdMatch = url.match(
       /(?:https?:\/\/)?(?:www\.)?youtube\.com\/watch\?v=([^&]+)|youtu\.be\/([^&]+)/
     );
     const videoId = videoIdMatch ? videoIdMatch[1] || videoIdMatch[2] : null;
 
-    return videoId
-      ? `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1`
-      : "";
+    return videoId ? `https://www.youtube.com/embed/${videoId}?autoplay=1` : "";
   };
 
   useEffect(() => {
@@ -84,16 +83,27 @@ export default function Home() {
             seu lado. Até a eternidade ❤️❤️❤️
           </p>
 
-          <div className="mt-4 pb-4">
-            <iframe
-              width="100%"
-              height="200"
-              src={getEmbedUrl(videoUrl)}
-              title="YouTube video player"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
-          </div>
+          {!playVideo && (
+            <button
+              onClick={() => setPlayVideo(true)}
+              className="bg-[#602D0E] text-white px-4 py-2 rounded mb-4"
+            >
+              Clique Aqui
+            </button>
+          )}
+
+          {playVideo && (
+            <div className="mt-4 pb-4">
+              <iframe
+                width="100%"
+                height="200"
+                src={getEmbedUrl(videoUrl)}
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+          )}
         </div>
       </div>
     </div>
