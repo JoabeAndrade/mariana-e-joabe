@@ -77,9 +77,9 @@ export default function Home() {
             className={`text-[#602D0E] text-base font-medium ${dancin.className} text-justify mt-4 mb-4`}
           >
             Nesse 1 ano de namoro aconteceu muitas coisas, mas nessa data
-            especial que agradecer a Deus por ter você ao meu lado. Dizer que
-            você é a mulher que eu quero compartilhar todos os meus momentos ao
-            seu lado. Até a eternidade ❤️❤️❤️
+            especial quero agradecer a Deus por ter você ao meu lado. Dizer que
+            você é a mulher que eu quero me casar e compartilhar todos os meus
+            momentos. Até a eternidade ❤️❤️❤️
           </p>
 
           {!playVideo && (
