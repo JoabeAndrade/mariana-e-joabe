@@ -27,10 +27,9 @@ export default function Home() {
   ];
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [playVideo, setPlayVideo] = useState(false); // Estado para controlar o vídeo
-  const videoUrl = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+  const [playVideo, setPlayVideo] = useState(false);
+  const videoUrl = "https://www.youtube.com/watch?v=U4i_pEsQFz4";
 
-  // Função que retorna a URL do vídeo incorporado sem mute
   const getEmbedUrl = (url: string): string => {
     const videoIdMatch = url.match(
       /(?:https?:\/\/)?(?:www\.)?youtube\.com\/watch\?v=([^&]+)|youtu\.be\/([^&]+)/
